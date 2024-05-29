@@ -8,33 +8,33 @@ namespace MakeUpzz.Repositories
 {
     public class UserRepository
     {
-        MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+        private static MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
 
-        public Boolean IsUsernameUnique(string username)
+        public static bool IsUsernameUnique(string username)
         {
             return !db.Users.Any(u => u.Username == username); //Pake LINQ
         }
 
-        public bool IsLoginValid(string username, string password)
+        public static bool IsLoginValid(string username, string password)
         {
             return db.Users.Any(u => u.Username == username && u.UserPassword == password);
         }
 
-        public User GetUserByNameAndPassword(string username, string password)
+        public static User GetUserByNameAndPassword(string username, string password)
         {
             return (from x in db.Users
                     where x.Username == username && x.UserPassword == password
                     select x).FirstOrDefault();
         }
 
-        public User getUserByName(string username)
+        public static User getUserByName(string username)
         {
             return (from x in db.Users
                     where x.Username.Equals(username)
                     select x).FirstOrDefault();
         }
 
-        public List<User> getCustomerList()
+        public static List<User> getCustomerList()
         {
             return (from x in db.Users
                     where x.UserRole == "Customer"

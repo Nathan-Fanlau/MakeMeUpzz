@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Models;
+﻿using MakeUpzz.Handler;
+using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,7 @@ namespace MakeUpzz.Views
             {
                 // Mendapatkan user berdasarkan cookies
                 string username = Request.Cookies["user_cookies"].Value;
-                UserRepository userRepo = new UserRepository();
-                user = userRepo.getUserByName(username);
+                user = UserHandler.getUserByName(username);
                 Session["user"] = user;
             }
             if (user != null)
@@ -29,8 +29,7 @@ namespace MakeUpzz.Views
 
                 if (user.UserRole == "Admin")
                 {
-                    UserRepository userRepo = new UserRepository();
-                    List<User> customerUsers = userRepo.getCustomerList();
+                    List<User> customerUsers = UserHandler.getCustomerList();
 
                     CustomerGV.DataSource = customerUsers;
                     CustomerGV.DataBind();

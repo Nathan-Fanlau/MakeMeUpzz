@@ -1,4 +1,5 @@
 ﻿using MakeUpzz.Factories;
+using MakeUpzz.Handler;
 using MakeUpzz.Models;
 using System;
 using System.Collections.Generic;
@@ -9,32 +10,16 @@ namespace MakeUpzz.Repositories
 {
     public class CartRepository
     {
-        MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+        private static MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
 
-        public int getLastCartID()
+        public static int getLastCartID()
         {
             return (from x in db.Carts select x.CartID).ToList().LastOrDefault();
         }
 
-        public void addToCart(int cartID, int userID, int makeupID, int quantity)
+        public static int generateCartID()
         {
-            Cart cart = CartFactory.Create(cartID, userID, makeupID, quantity);
-            db.Carts.Add(cart);
-            db.SaveChanges();
-        }
-
-        public void clearCart(int userID)
-        {
-            //Cart cart = db.Carts.Find(userID);
-            List<Cart> cartItems = db.Carts.Where(c => c.UserID == userID).ToList();
-            db.Carts.RemoveRange(cartItems);
-            db.SaveChanges();
-        }
-
-        public int generateTransactionID()
-        {
-            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
-            int lastID = thRepo.getLastTransactionID();
+            int lastID = getLastCartID();
 
             if (lastID == null)
             {
@@ -47,7 +32,39 @@ namespace MakeUpzz.Repositories
             return lastID;
         }
 
-        public void checkout(int userID)
+        public static void addToCart(int userID, int makeupID, int quantity)
+        {
+            int cartID = generateCartID();
+            Cart cart = CartFactory.Create(cartID, userID, makeupID, quantity);
+            db.Carts.Add(cart);
+            db.SaveChanges();
+        }
+
+        public static void clearCart(int userID)
+        {
+            //Cart cart = db.Carts.Find(userID);
+            List<Cart> cartItems = db.Carts.Where(c => c.UserID == userID).ToList();
+            db.Carts.RemoveRange(cartItems);
+            db.SaveChanges();
+        }
+
+        public static int generateTransactionID()
+        {
+            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
+            int lastID = TransactionHeaderHandler.getLastTransactionID();
+
+            if (lastID == null)
+            {
+                lastID = 1;
+            }
+            else
+            {
+                lastID++;
+            }
+            return lastID;
+        }
+
+        public static void checkout(int userID)
         {
             //Ngambil semua cart si user, karena 1 user bisa punya banyak cart
             List<Cart> userCarts = db.Carts.Where(c => c.UserID == userID).ToList();

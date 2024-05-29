@@ -8,9 +8,9 @@ namespace MakeUpzz.Repositories
 {
     public class MakeupRepository
     {
-        MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+        private static MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
 
-        public List<Makeup> getAllMakeups()
+        public static List<Makeup> getAllMakeups()
         {
             return (from x in db.Makeups select x).ToList();
         }

@@ -8,9 +8,9 @@ namespace MakeUpzz.Repositories
 {
     public class TransactionHeaderRepository
     {
-        MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+        private static MakeupzzDatabaseEntities db = DatabaseSingleton.GetInstance();
 
-        public int getLastTransactionID()
+        public static int getLastTransactionID()
         {
             return (from x in db.TransactionHeaders select x.TransactionID).ToList().LastOrDefault();
         }

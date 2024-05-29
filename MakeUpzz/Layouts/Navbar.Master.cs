@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Models;
+﻿using MakeUpzz.Handler;
+using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,6 @@ namespace MakeUpzz.Layouts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserRepository userRepo = new UserRepository();
             if (Session["user"] == null && Request.Cookies["user_cookies"] == null)
             {
                 Home.Visible = false;
@@ -31,7 +31,7 @@ namespace MakeUpzz.Layouts
                 if (Session["user"] == null)
                 {
                     String username = Request.Cookies["user_cookies"].Value;
-                    user = userRepo.getUserByName(username);
+                    user = UserHandler.getUserByName(username);
                     Session["user"] = user;
                 }
                 else

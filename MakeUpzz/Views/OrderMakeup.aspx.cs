@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Models;
+﻿using MakeUpzz.Handler;
+using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ namespace MakeUpzz.Views
 {
     public partial class OrderMakeup : System.Web.UI.Page
     {
-        MakeupRepository makeupRepo = new MakeupRepository();
         CartRepository cartRepo = new CartRepository();
         protected void Page_Load(object sender, EventArgs e)
         {          
@@ -22,8 +22,7 @@ namespace MakeUpzz.Views
                 {
                     // Mendapatkan user berdasarkan cookies
                     string username = Request.Cookies["user_cookies"].Value;
-                    UserRepository userRepo = new UserRepository();
-                    user = userRepo.getUserByName(username);
+                    user = UserHandler.getUserByName(username);
                     Session["user"] = user;
                 }
 
@@ -31,7 +30,7 @@ namespace MakeUpzz.Views
                 {
                     if (user.UserRole == "Customer")
                     {
-                        List<Makeup> makeupList = makeupRepo.getAllMakeups();
+                        List<Makeup> makeupList = MakeupHandler.getAllMakeups();
                         MakeupGV.DataSource = makeupList;
                         MakeupGV.DataBind();
                     }
@@ -47,21 +46,6 @@ namespace MakeUpzz.Views
             }
         }
 
-        public int generateCartID()
-        {
-            int lastID = cartRepo.getLastCartID();
-
-            if(lastID == null)
-            {
-                lastID = 1;
-            }
-            else
-            {
-                lastID++;
-            }
-            return lastID;
-        }
-
         protected void OrderButton_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -72,7 +56,7 @@ namespace MakeUpzz.Views
             if (quantity > 0)
             {
                 User user = (User)Session["user"];
-                cartRepo.addToCart(generateCartID(), user.UserID, makeupId, quantity);
+                CartHandler.addToCart(user.UserID, makeupId, quantity);
                 MessageLabel.Text = "Item added to cart.";
                 MessageLabel.ForeColor = System.Drawing.Color.Green;
             }
@@ -86,7 +70,7 @@ namespace MakeUpzz.Views
         protected void ClearCartButton_Click(object sender, EventArgs e)
         {
             User user = (User)Session["user"];
-            cartRepo.clearCart(user.UserID);
+            CartHandler.clearCart(user.UserID);
             MessageLabel.Text = "Cart cleared.";
             MessageLabel.ForeColor = System.Drawing.Color.Green;
         }
@@ -94,7 +78,7 @@ namespace MakeUpzz.Views
         protected void CheckoutButton_Click(object sender, EventArgs e)
         {
             User user = (User)Session["user"];
-            cartRepo.checkout(user.UserID);
+            CartHandler.checkout(user.UserID);
             MessageLabel.Text = "Checkout successful.";
             MessageLabel.ForeColor = System.Drawing.Color.Green;
         }

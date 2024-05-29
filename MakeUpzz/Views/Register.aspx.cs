@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Repositories;
+﻿using MakeUpzz.Handler;
+using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,6 @@ namespace MakeUpzz.Views
             String confirmPassword = confirmTB.Text;
             DateTime DOB = dobCalendar.SelectedDate;
 
-            UserRepository userRepo = new UserRepository();
 
             //Username Validation
             if (string.IsNullOrEmpty(username))
@@ -36,7 +36,7 @@ namespace MakeUpzz.Views
             {
                 errorMessage += "Username length must be between 5 and 15 character <br/>";
             }
-            else if (!userRepo.IsUsernameUnique(username))
+            else if (!UserHandler.IsUsernameUnique(username))
             {
                 errorMessage += "Username must be unique <br/>";
             }
@@ -74,9 +74,6 @@ namespace MakeUpzz.Views
             {
                 errorMessage += "Must be the same with confirm password <br/>";
             }
-
-            System.Diagnostics.Debug.WriteLine($"Password: {password}");
-            System.Diagnostics.Debug.WriteLine($"Confirm Password: {confirmPassword}");
 
 
             //DOB Validation

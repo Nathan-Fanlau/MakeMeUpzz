@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Models;
+﻿using MakeUpzz.Handler;
+using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,6 @@ namespace MakeUpzz.Views
             String username = nameTB.Text;
             String password = passwordTB.Text;
             bool rememberMe = termsCB.Checked;
-            UserRepository userRepo = new UserRepository();
 
             if (string.IsNullOrEmpty(username))
             {
@@ -39,7 +39,7 @@ namespace MakeUpzz.Views
                 ErrorLbl.ForeColor = System.Drawing.Color.Red;
             }
 
-            User user = userRepo.GetUserByNameAndPassword(username, password);
+            User user = UserHandler.GetUserByNameAndPassword(username, password);
 
 
             if (user != null)
