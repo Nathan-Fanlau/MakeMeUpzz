@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Models;
+﻿using MakeUpzz.Factories;
+using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,12 @@ namespace MakeUpzz.Handler
         public static List<User> getCustomerList()
         {
             return UserRepository.getCustomerList();
+        }
+
+        public static void insertUser(string username, string email, DateTime dob, string gender, string password)
+        {
+            string role = "Customer";
+            UserRepository.insertUser(username, email, dob, gender, role, password);
         }
     }
 }

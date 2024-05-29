@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Handler;
+﻿using MakeUpzz.Controller;
+using MakeUpzz.Handler;
 using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
@@ -23,25 +24,9 @@ namespace MakeUpzz.Views
             String password = passwordTB.Text;
             bool rememberMe = termsCB.Checked;
 
-            if (string.IsNullOrEmpty(username))
-            {
-                errorMessage += "Username cannot be empty <br/>";
-            }
+            User user = UserController.Login(username, password, out errorMessage);
 
-            if (string.IsNullOrEmpty(password))
-            {
-                errorMessage += "Password cannot be empty.<br/>";
-            }
-
-            if (!string.IsNullOrEmpty(errorMessage))
-            {
-                ErrorLbl.Text = errorMessage;
-                ErrorLbl.ForeColor = System.Drawing.Color.Red;
-            }
-
-            User user = UserHandler.GetUserByNameAndPassword(username, password);
-
-
+            //Cookies
             if (user != null)
             {
                 Session["user"] = user;
@@ -56,7 +41,6 @@ namespace MakeUpzz.Views
             }
             else
             {
-                errorMessage += "Invalid username or password.<br/>";
                 ErrorLbl.Text = errorMessage;
                 ErrorLbl.ForeColor = System.Drawing.Color.Red;
             }
