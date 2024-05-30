@@ -14,5 +14,27 @@ namespace MakeUpzz.Repositories
         {
             return (from x in db.TransactionHeaders select x.TransactionID).ToList().LastOrDefault();
         }
+
+        public static List<TransactionHeader> getAllTransactionHeaderByUserID(int UserID)
+        {
+            return (from x in db.TransactionHeaders where x.UserID == UserID select x).ToList();
+        }
+
+
+        public static List<TransactionHeader> getAllTransactionHeader()
+        {
+            return (from x in db.TransactionHeaders select x).ToList();
+        }
+
+        public static void handleTransaction(int TransactionID)
+        {
+            TransactionHeader th = db.TransactionHeaders.Find(TransactionID);
+
+            if(th != null && th.Status.Equals("Unhandled"))
+            {
+                th.Status = "Handled";
+                db.SaveChanges();
+            }
+        }
     }
 }

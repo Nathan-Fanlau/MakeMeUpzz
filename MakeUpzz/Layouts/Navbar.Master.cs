@@ -40,7 +40,7 @@ namespace MakeUpzz.Layouts
                 }
                 if (user.UserRole == "Customer")
                 {
-                    Home.Visible = false;
+                    // Home.Visible = false;
                     manageMakeup.Visible = false;
                     orderQueue.Visible = false;
                     transactionReport.Visible = false;
@@ -48,7 +48,7 @@ namespace MakeUpzz.Layouts
                 else if (user.UserRole == "Admin")
                 {
                     orderMakeup.Visible = false;
-                    History.Visible = false;
+                    // History.Visible = false;
                 }
             }
         }

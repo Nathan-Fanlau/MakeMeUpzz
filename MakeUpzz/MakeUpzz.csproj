@@ -89,10 +89,13 @@
       <DependentUpon>MakeupModel.edmx</DependentUpon>
       <LastGenOutput>MakeupModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\HandleTransaction.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\OrderMakeup.aspx" />
     <Content Include="Views\Register.aspx" />
+    <Content Include="Views\TransactionDetails.aspx" />
+    <Content Include="Views\TransactionHistory.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +108,7 @@
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Handler\MakeupHandler.cs" />
+    <Compile Include="Handler\TransactionDetailHandler.cs" />
     <Compile Include="Handler\TransactionHeaderHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="Layouts\Navbar.Master.cs">
@@ -154,8 +158,16 @@
     <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\MakeupRepository.cs" />
+    <Compile Include="Repositories\TransactionDetailRepository.cs" />
     <Compile Include="Repositories\TransactionHeaderRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Views\HandleTransaction.aspx.cs">
+      <DependentUpon>HandleTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HandleTransaction.aspx.designer.cs">
+      <DependentUpon>HandleTransaction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +195,20 @@
     </Compile>
     <Compile Include="Views\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetails.aspx.cs">
+      <DependentUpon>TransactionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetails.aspx.designer.cs">
+      <DependentUpon>TransactionDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
