@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Models;
+﻿using MakeUpzz.Factories;
+using MakeUpzz.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,35 @@ namespace MakeUpzz.Repositories
             return (from x in db.Users
                     where x.UserRole == "Customer"
                     select x).ToList();
+        }
+
+        public static int getLastUserID()
+        {
+            return (from x in db.Users select x.UserID).ToList().LastOrDefault();
+        }
+
+        public static int generateUserID()
+        {
+            int lastID = getLastUserID();
+
+            if (lastID == null)
+            {
+                lastID = 1;
+            }
+            else
+            {
+                lastID++;
+            }
+            return lastID;
+        }
+
+        public static void insertUser(String name, String email, DateTime dob, String gender, String role,
+                                        String pw)
+        {
+            int UserID = generateUserID();
+            User user = UserFactory.Create(UserID, name, email, dob, gender, role, pw);
+            db.Users.Add(user);
+            db.SaveChanges();
         }
     }
 }
