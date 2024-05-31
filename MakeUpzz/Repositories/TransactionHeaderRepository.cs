@@ -36,5 +36,11 @@ namespace MakeUpzz.Repositories
                 db.SaveChanges();
             }
         }
+
+        public static List<TransactionHeader> getAllTransaction()
+        {
+            return (from t in db.TransactionHeaders select t).ToList();
+        }
+
     }
 }

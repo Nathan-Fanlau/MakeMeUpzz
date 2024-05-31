@@ -14,5 +14,9 @@ namespace MakeUpzz.Handler
             return MakeupRepository.getAllMakeups();
         }
 
+        public static int getMakeupPrice(int id)
+        {
+            return MakeupRepository.getMakeupPrice(id);
+        }
     }
 }

@@ -14,5 +14,10 @@ namespace MakeUpzz.Repositories
         {
             return (from x in db.Makeups select x).ToList();
         }
+
+        public static int getMakeupPrice(int id)
+        {
+            return (from x in db.Makeups where x.MakeupID == id select x.MakeupPrice).FirstOrDefault();
+        }
     }
 }

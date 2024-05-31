@@ -85,7 +85,7 @@ namespace MakeUpzz.Layouts
 
         protected void transactionReport_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/ViewTransactionReport.aspx");
+            Response.Redirect("~/Views/ViewTransactionReports.aspx");
         }
 
         protected void Logout_Click(object sender, EventArgs e)

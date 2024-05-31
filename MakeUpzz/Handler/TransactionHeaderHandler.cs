@@ -28,5 +28,10 @@ namespace MakeUpzz.Handler
         {
             TransactionHeaderRepository.handleTransaction(TransactionID);
         }
+
+        public static List<TransactionHeader> getAllTransaction()
+        {
+            return TransactionHeaderRepository.getAllTransaction();
+        }
     }
 }
