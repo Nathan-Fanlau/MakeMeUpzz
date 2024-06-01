@@ -1234,6 +1234,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\MakeupController.cs" />
+    <Compile Include="Controller\TDController.cs" />
+    <Compile Include="Controller\THController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Dataset\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>

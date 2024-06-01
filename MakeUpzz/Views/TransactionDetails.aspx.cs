@@ -1,4 +1,4 @@
-﻿using MakeUpzz.Handler;
+﻿using MakeUpzz.Controller;
 using MakeUpzz.Models;
 using System;
 using System.Collections.Generic;
@@ -20,13 +20,13 @@ namespace MakeUpzz.Views
                 {
                     // Mendapatkan user berdasarkan cookies
                     string username = Request.Cookies["user_cookies"].Value;
-                    user = UserHandler.getUserByName(username);
+                    user = UserController.getUserByName(username);
                     Session["user"] = user;
                 }
                 if (user != null)
                 {
                     int TransactionID = Convert.ToInt32(Request.QueryString["id"]);
-                    List<TransactionDetail> listTD = TransactionDetailHandler.getTransactionDetailByID(TransactionID);
+                    List<TransactionDetail> listTD = TDController.getTransactionDetailByID(TransactionID);
                     TransactionDetailGV.DataSource = listTD;
                     TransactionDetailGV.DataBind();
                 }

@@ -1,6 +1,5 @@
-﻿using MakeUpzz.Handler;
+﻿using MakeUpzz.Controller;
 using MakeUpzz.Models;
-using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +21,21 @@ namespace MakeUpzz.Views
                 {
                     // Mendapatkan user berdasarkan cookies
                     string username = Request.Cookies["user_cookies"].Value;
-                    user = UserHandler.getUserByName(username);
+                    user = UserController.getUserByName(username);
                     Session["user"] = user;
                 }
                 if (user != null)
                 {
                     if (user.UserRole == "Customer")
                     {
-                        List<TransactionHeader> list = TransactionHeaderHandler.getAllTransactionHeaderByUserID(user.UserID);
+                        List<TransactionHeader> list = THController.getAllTransactionHeaderByUserID(user.UserID);
                         TransactionGV.DataSource = list;
                         TransactionGV.DataBind();
                         TransactionGV.Columns[1].Visible = false; // No need to see UserID
                     }
                     else // ADMIN
                     {
-                        List<TransactionHeader> list = TransactionHeaderHandler.getAllTransactionHeader();
+                        List<TransactionHeader> list = THController.getAllTransactionHeader();
                         TransactionGV.DataSource = list;
                         TransactionGV.DataBind();
                     }

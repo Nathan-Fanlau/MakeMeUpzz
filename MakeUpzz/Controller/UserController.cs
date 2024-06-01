@@ -1,5 +1,6 @@
 ﻿using MakeUpzz.Handler;
 using MakeUpzz.Models;
+using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,6 +110,21 @@ namespace MakeUpzz.Controller
             }
 
             return user;
+        }
+
+        public static void insertUser(string username, string email, DateTime dob, string gender, string password)
+        {
+            UserHandler.insertUser(username, email, dob, gender, password);
+        }
+
+        public static User getUserByName(string username)
+        {
+            return UserHandler.getUserByName(username);
+        }
+
+        public static List<User> getCustomerList()
+        {
+            return UserHandler.getCustomerList();
         }
 
         public static string Register(string username, string email, string gender, string password, string confirmPassword, DateTime dob)

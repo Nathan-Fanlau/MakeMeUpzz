@@ -1,5 +1,4 @@
 ﻿using MakeUpzz.Controller;
-using MakeUpzz.Handler;
 using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;

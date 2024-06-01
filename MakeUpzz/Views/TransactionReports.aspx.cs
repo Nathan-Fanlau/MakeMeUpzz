@@ -1,5 +1,5 @@
-﻿using MakeUpzz.Dataset;
-using MakeUpzz.Handler;
+﻿using MakeUpzz.Controller;
+using MakeUpzz.Dataset;
 using MakeUpzz.Models;
 using MakeUpzz.Report;
 using System;
@@ -16,7 +16,7 @@ namespace MakeUpzz.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet1 data = getData(TransactionHeaderHandler.getAllTransaction());
+            DataSet1 data = getData(THController.getAllTransaction());
             CrystalReport1 report = new CrystalReport1();
             CrystalReportViewer1.ReportSource = report;
             report.SetDataSource(data);
@@ -46,7 +46,7 @@ namespace MakeUpzz.Views
                     drow["MakeupID"] = d.MakeupID;
                     drow["Quantity"] = d.Quantity;
 
-                    int makeupPrice = MakeupHandler.getMakeupPrice(d.MakeupID);
+                    int makeupPrice = MakeupController.getMakeupPrice(d.MakeupID);
                     int totalPrice = d.Quantity * makeupPrice;
                     drow["TotalPrice"] = totalPrice;
                     subTotal += totalPrice;

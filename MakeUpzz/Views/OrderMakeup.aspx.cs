@@ -1,6 +1,5 @@
-﻿using MakeUpzz.Handler;
+﻿using MakeUpzz.Controller;
 using MakeUpzz.Models;
-using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,6 @@ namespace MakeUpzz.Views
 {
     public partial class OrderMakeup : System.Web.UI.Page
     {
-        CartRepository cartRepo = new CartRepository();
         protected void Page_Load(object sender, EventArgs e)
         {          
             if (!IsPostBack)
@@ -22,7 +20,7 @@ namespace MakeUpzz.Views
                 {
                     // Mendapatkan user berdasarkan cookies
                     string username = Request.Cookies["user_cookies"].Value;
-                    user = UserHandler.getUserByName(username);
+                    user = UserController.getUserByName(username);
                     Session["user"] = user;
                 }
 
@@ -30,7 +28,7 @@ namespace MakeUpzz.Views
                 {
                     if (user.UserRole == "Customer")
                     {
-                        List<Makeup> makeupList = MakeupHandler.getAllMakeups();
+                        List<Makeup> makeupList = MakeupController.getAllMakeups();
                         MakeupGV.DataSource = makeupList;
                         MakeupGV.DataBind();
                     }
@@ -56,7 +54,7 @@ namespace MakeUpzz.Views
             if (quantity > 0)
             {
                 User user = (User)Session["user"];
-                CartHandler.addToCart(user.UserID, makeupId, quantity);
+                CartController.addToCart(user.UserID, makeupId, quantity);
                 MessageLabel.Text = "Item added to cart.";
                 MessageLabel.ForeColor = System.Drawing.Color.Green;
             }
@@ -70,7 +68,7 @@ namespace MakeUpzz.Views
         protected void ClearCartButton_Click(object sender, EventArgs e)
         {
             User user = (User)Session["user"];
-            CartHandler.clearCart(user.UserID);
+            CartController.clearCart(user.UserID);
             MessageLabel.Text = "Cart cleared.";
             MessageLabel.ForeColor = System.Drawing.Color.Green;
         }
@@ -78,7 +76,7 @@ namespace MakeUpzz.Views
         protected void CheckoutButton_Click(object sender, EventArgs e)
         {
             User user = (User)Session["user"];
-            CartHandler.checkout(user.UserID);
+            CartController.checkout(user.UserID);
             MessageLabel.Text = "Checkout successful.";
             MessageLabel.ForeColor = System.Drawing.Color.Green;
         }

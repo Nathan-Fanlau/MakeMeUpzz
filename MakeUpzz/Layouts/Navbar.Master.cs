@@ -48,7 +48,7 @@ namespace MakeUpzz.Layouts
                 else if (user.UserRole == "Admin")
                 {
                     orderMakeup.Visible = false;
-                    // History.Visible = false;
+                    //History.Visible = false;
                 }
             }
         }
@@ -85,7 +85,7 @@ namespace MakeUpzz.Layouts
 
         protected void transactionReport_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/ViewTransactionReports.aspx");
+            Response.Redirect("~/Views/TransactionReports.aspx");
         }
 
         protected void Logout_Click(object sender, EventArgs e)

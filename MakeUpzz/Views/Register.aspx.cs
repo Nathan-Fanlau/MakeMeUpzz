@@ -1,6 +1,4 @@
 ﻿using MakeUpzz.Controller;
-using MakeUpzz.Handler;
-using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +29,7 @@ namespace MakeUpzz.Views
             {
                 ErrorLbl.Text = errorMsg;
                 ErrorLbl.ForeColor = System.Drawing.Color.Green;
-                UserHandler.insertUser(username, email, DOB, gender, password);
+                UserController.insertUser(username, email, DOB, gender, password);
                 Response.Redirect("~/Views/Login.aspx");
             }
             else
