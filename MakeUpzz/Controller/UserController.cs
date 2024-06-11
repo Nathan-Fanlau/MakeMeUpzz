@@ -117,6 +117,11 @@ namespace MakeUpzz.Controller
             UserHandler.insertUser(username, email, dob, gender, password);
         }
 
+        public static User getUserById(int id)
+        {
+            return UserHandler.getUserById(id);
+        }
+
         public static User getUserByName(string username)
         {
             return UserHandler.getUserByName(username);
@@ -141,6 +146,55 @@ namespace MakeUpzz.Controller
                 return lbl;
             }
             return "Register Successful!";
+        }
+
+        public static string validateProfile(string username, string email, string gender, DateTime dob)
+        {
+            string lbl = "";
+            lbl += ValidateUsername(username);
+            lbl += ValidateEmail(email);
+            lbl += ValidateGender(gender);
+            lbl += ValidateDOB(dob);
+
+            if (!string.IsNullOrEmpty(lbl))
+            {
+                return lbl;
+            }
+            return "Update Profile Successful!";
+        }
+
+        public static void updateUser(int userId, String name, String email, String gender, DateTime dob)
+        {
+            UserHandler.updateUser(userId, name, email, gender, dob);
+        }
+
+        public static string validateChangePw(int userID, String oldPassword, String newPassword)
+        {
+            string lbl = "";
+            if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword))
+            {
+                lbl = "Passwords cannot be empty.";
+            }
+
+            if (string.IsNullOrEmpty(lbl))  
+            {
+                User user = getUserById(userID);
+                if (user.UserPassword != oldPassword)
+                {
+                    lbl = "Old password is incorrect.<br/>";
+                }   
+            }
+
+            if (!string.IsNullOrEmpty(lbl))
+            {
+                return lbl;
+            }
+            return "Update Password Successful!";
+        }
+
+        public static void updateUserPassword(int userId, String newPW)
+        {
+            UserHandler.updateUserPassword(userId, newPW);
         }
     }
 }

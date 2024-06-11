@@ -1,5 +1,6 @@
 ﻿using MakeUpzz.Handler;
 using MakeUpzz.Models;
+using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace MakeUpzz.Controller
         public static List<TransactionDetail> getTransactionDetailByID(int ID)
         {
             return TransactionDetailHandler.getTransactionDetailByID(ID);
+        }
+
+        public static List<TransactionDetail> getTransactionDetailByMakeupID(int ID)
+        {
+            return TransactionDetailHandler.getTransactionDetailByMakeupID(ID);
         }
     }
 }

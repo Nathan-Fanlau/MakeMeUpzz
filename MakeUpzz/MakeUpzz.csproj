@@ -1225,17 +1225,27 @@
     </Content>
     <Content Include="Views\HandleTransaction.aspx" />
     <Content Include="Views\Home.aspx" />
+    <Content Include="Views\InsertMakeup.aspx" />
+    <Content Include="Views\InsertMakeupBrand.aspx" />
+    <Content Include="Views\InsertMakeupType.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\ManageMakeup.aspx" />
     <Content Include="Views\OrderMakeup.aspx" />
+    <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\TransactionDetails.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
     <Content Include="Views\TransactionReports.aspx" />
+    <Content Include="Views\UpdateMakeup.aspx" />
+    <Content Include="Views\UpdateMakeupBrand.aspx" />
+    <Content Include="Views\UpdateMakeupType.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\MakeupBrandController.cs" />
     <Compile Include="Controller\MakeupController.cs" />
+    <Compile Include="Controller\MakeupTypeController.cs" />
     <Compile Include="Controller\TDController.cs" />
     <Compile Include="Controller\THController.cs" />
     <Compile Include="Controller\UserController.cs" />
@@ -1252,7 +1262,9 @@
     <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handler\CartHandler.cs" />
+    <Compile Include="Handler\MakeupBrandHandler.cs" />
     <Compile Include="Handler\MakeupHandler.cs" />
+    <Compile Include="Handler\MakeupTypeHandler.cs" />
     <Compile Include="Handler\TransactionDetailHandler.cs" />
     <Compile Include="Handler\TransactionHeaderHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
@@ -1308,7 +1320,9 @@
     </Compile>
     <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DatabaseSingleton.cs" />
+    <Compile Include="Repositories\MakeupBrandRepository.cs" />
     <Compile Include="Repositories\MakeupRepository.cs" />
+    <Compile Include="Repositories\MakeupTypeRepository.cs" />
     <Compile Include="Repositories\TransactionDetailRepository.cs" />
     <Compile Include="Repositories\TransactionHeaderRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -1326,6 +1340,27 @@
     <Compile Include="Views\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\InsertMakeup.aspx.cs">
+      <DependentUpon>InsertMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeup.aspx.designer.cs">
+      <DependentUpon>InsertMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupBrand.aspx.cs">
+      <DependentUpon>InsertMakeupBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupBrand.aspx.designer.cs">
+      <DependentUpon>InsertMakeupBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupType.aspx.cs">
+      <DependentUpon>InsertMakeupType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupType.aspx.designer.cs">
+      <DependentUpon>InsertMakeupType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1333,12 +1368,26 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManageMakeup.aspx.cs">
+      <DependentUpon>ManageMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageMakeup.aspx.designer.cs">
+      <DependentUpon>ManageMakeup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderMakeup.aspx.cs">
       <DependentUpon>OrderMakeup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\OrderMakeup.aspx.designer.cs">
       <DependentUpon>OrderMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -1367,6 +1416,27 @@
     </Compile>
     <Compile Include="Views\TransactionReports.aspx.designer.cs">
       <DependentUpon>TransactionReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeup.aspx.cs">
+      <DependentUpon>UpdateMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeup.aspx.designer.cs">
+      <DependentUpon>UpdateMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrand.aspx.cs">
+      <DependentUpon>UpdateMakeupBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrand.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupType.aspx.cs">
+      <DependentUpon>UpdateMakeupType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupType.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupType.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

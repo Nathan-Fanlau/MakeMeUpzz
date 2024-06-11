@@ -14,5 +14,9 @@ namespace MakeUpzz.Handler
             return TransactionDetailRepository.getTransactionDetailByID(ID);
         }
 
+        public static List<TransactionDetail> getTransactionDetailByMakeupID(int ID)
+        {
+            return TransactionDetailRepository.getTransactionDetailByMakeupID(ID);
+        }
     }
 }

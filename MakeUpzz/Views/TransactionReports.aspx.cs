@@ -16,10 +16,36 @@ namespace MakeUpzz.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet1 data = getData(THController.getAllTransaction());
-            CrystalReport1 report = new CrystalReport1();
-            CrystalReportViewer1.ReportSource = report;
-            report.SetDataSource(data);
+            if (!IsPostBack)
+            {
+                User user = (User)Session["user"];
+                if (user == null && Request.Cookies["user_cookies"] != null)
+                {
+                    // Mendapatkan user berdasarkan cookies
+                    string username = Request.Cookies["user_cookies"].Value;
+                    user = UserController.getUserByName(username);
+                    Session["user"] = user;
+                }
+
+                if (user != null)
+                {
+                    if (user.UserRole == "Admin")
+                    {
+                        DataSet1 data = getData(THController.getAllTransaction());
+                        CrystalReport1 report = new CrystalReport1();
+                        CrystalReportViewer1.ReportSource = report;
+                        report.SetDataSource(data);
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Views/Home.aspx");
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/Views/Login.aspx");
+                }
+            }
         }
         //C:\inetpub\wwwroot -> Copy ini, paste di directory this pc abis tu copy folder nya masukin ke vs 2022
         public DataSet1 getData(List<TransactionHeader> transactions)

@@ -17,5 +17,9 @@ namespace MakeUpzz.Repositories
             return (from x in db.TransactionDetails where x.TransactionID == ID select x).ToList();
         }
 
+        public static List<TransactionDetail> getTransactionDetailByMakeupID(int ID)
+        {
+            return (from x in db.TransactionDetails where x.MakeupID == ID select x).ToList();
+        }
     }
 }

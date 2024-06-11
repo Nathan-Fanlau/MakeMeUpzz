@@ -35,6 +35,11 @@ namespace MakeUpzz.Repositories
                     select x).FirstOrDefault();
         }
 
+        public static User getUserById(int id)
+        {
+            return (from x in db.Users where x.UserID == id select x).FirstOrDefault();
+        }
+
         public static List<User> getCustomerList()
         {
             return (from x in db.Users
@@ -68,6 +73,23 @@ namespace MakeUpzz.Repositories
             int UserID = generateUserID();
             User user = UserFactory.Create(UserID, name, email, dob, gender, role, pw);
             db.Users.Add(user);
+            db.SaveChanges();
+        }
+
+        public static void updateUser(int userId, String name, String email, String gender, DateTime dob)
+        {
+            User user = db.Users.Find(userId);
+            user.Username = name;
+            user.UserEmail = email;
+            user.UserGender = gender;
+            user.UserDOB = dob;
+            db.SaveChanges();
+        }
+
+        public static void updateUserPassword(int userId, String newPW)
+        {
+            User user = db.Users.Find(userId);
+            user.UserPassword = newPW;
             db.SaveChanges();
         }
     }
