@@ -1,4 +1,5 @@
-﻿using MakeUpzz.Handler;
+﻿using MakeUpzz.Controller;
+using MakeUpzz.Handler;
 using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
@@ -31,7 +32,7 @@ namespace MakeUpzz.Layouts
                 if (Session["user"] == null)
                 {
                     String username = Request.Cookies["user_cookies"].Value;
-                    user = UserHandler.getUserByName(username);
+                    user = UserController.getUserByName(username);
                     Session["user"] = user;
                 }
                 else
