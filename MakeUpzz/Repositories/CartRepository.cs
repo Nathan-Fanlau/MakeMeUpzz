@@ -55,7 +55,7 @@ namespace MakeUpzz.Repositories
         public static int generateTransactionID()
         {
             TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
-            int lastID = TransactionHeaderHandler.getLastTransactionID();
+            int lastID = TransactionHeaderRepository.getLastTransactionID();
 
             if (lastID == null)
             {
@@ -86,8 +86,9 @@ namespace MakeUpzz.Repositories
                 if (makeup != null)
                 {
                     // Cari TransactionDetail yang sudah ada
-                    TransactionDetail existingTD = db.TransactionDetails
-                        .FirstOrDefault(td => td.TransactionID == th.TransactionID && td.MakeupID == cart.MakeupID);
+                    //TransactionDetail existingTD = db.TransactionDetails
+                    //    .FirstOrDefault(td => td.TransactionID == th.TransactionID && td.MakeupID == cart.MakeupID);
+                    TransactionDetail existingTD = TransactionDetailRepository.getExistedTD(th.TransactionID, cart.MakeupID);
 
                     if (existingTD != null)
                     {

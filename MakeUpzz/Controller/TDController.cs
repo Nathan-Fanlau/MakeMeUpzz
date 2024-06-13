@@ -19,5 +19,10 @@ namespace MakeUpzz.Controller
         {
             return TransactionDetailHandler.getTransactionDetailByMakeupID(ID);
         }
+
+        public static TransactionDetail getExistedTD(int transactionID, int makeupID)
+        {
+            return TransactionDetailHandler.getExistedTD(transactionID, makeupID);
+        }
     }
 }
