@@ -16,6 +16,10 @@ namespace MakeUpzz.Repositories
         {
             return (from x in db.Carts select x.CartID).ToList().LastOrDefault();
         }
+        public static List<Cart> getCartByMakeupID(int ID)
+        {
+            return (from x in db.Carts where x.MakeupID == ID select x).ToList();
+        }
 
         public static int generateCartID()
         {

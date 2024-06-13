@@ -1,4 +1,5 @@
 ﻿using MakeUpzz.Handler;
+using MakeUpzz.Models;
 using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace MakeUpzz.Controller
         public static void addToCart(int userID, int makeupID, int quantity)
         {
             CartHandler.addToCart(userID, makeupID, quantity);
+        }
+
+        public static List<Cart> getCartByMakeupID(int ID)
+        {
+            return CartHandler.getCartByMakeupID(ID);
         }
 
         public static void clearCart(int userID)

@@ -15,6 +15,11 @@ namespace MakeUpzz.Handler
             CartRepository.addToCart(userID, makeupID, quantity);
         }
 
+        public static List<Cart> getCartByMakeupID(int ID)
+        {
+            return CartRepository.getCartByMakeupID(ID);
+        }
+
         public static void clearCart(int userID)
         {
             CartRepository.clearCart(userID);

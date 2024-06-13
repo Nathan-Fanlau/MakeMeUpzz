@@ -30,6 +30,8 @@ namespace MakeUpzz.Repositories
         public static void RemoveMakeupById(int id)
         {
             Makeup makeup = db.Makeups.Find(id);
+            List<Cart> cart = CartRepository.getCartByMakeupID(id);
+            db.Carts.RemoveRange(cart);
             List<TransactionDetail> td = TransactionDetailRepository.getTransactionDetailByMakeupID(id);
             db.TransactionDetails.RemoveRange(td);
             db.Makeups.Remove(makeup);
