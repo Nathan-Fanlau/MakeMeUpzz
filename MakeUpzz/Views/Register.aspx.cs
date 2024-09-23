@@ -2,19 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace MakeUpzz.Views
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class Register1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             String username = nameTB.Text;

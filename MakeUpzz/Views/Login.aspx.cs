@@ -1,6 +1,5 @@
 ﻿using MakeUpzz.Controller;
 using MakeUpzz.Models;
-using MakeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +9,13 @@ using System.Web.UI.WebControls;
 
 namespace MakeUpzz.Views
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
         protected void loginBtn_Click(object sender, EventArgs e)
         {
             String errorMessage = "";
