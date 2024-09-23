@@ -1237,7 +1237,6 @@
     <Content Include="Views\InsertMakeupBrand.aspx" />
     <Content Include="Views\InsertMakeupType.aspx" />
     <Content Include="Views\Login.aspx" />
-    <Content Include="Views\Login2.aspx" />
     <Content Include="Views\ManageMakeup.aspx" />
     <Content Include="Views\OrderMakeup.aspx" />
     <Content Include="Views\Profile.aspx" />
@@ -1376,13 +1375,6 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login2.aspx.cs">
-      <DependentUpon>Login2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Login2.aspx.designer.cs">
-      <DependentUpon>Login2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ManageMakeup.aspx.cs">
       <DependentUpon>ManageMakeup.aspx</DependentUpon>

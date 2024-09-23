@@ -93,6 +93,10 @@
                 </asp:RadioButtonList>
             </div>
             <div class="form-group">
+                <asp:Label ID="DOBLbl" runat="server" CssClass="form-label" Text="Date Of Birth "></asp:Label>
+                <asp:Calendar ID="dobCalendar" runat="server"></asp:Calendar>
+            </div>
+            <div class="form-group">
                 <asp:Label ID="passwordLbl" runat="server" CssClass="form-label" Text="Password "></asp:Label>
                 <asp:TextBox ID="passwordTB" runat="server" CssClass="form-input" TextMode="Password"></asp:TextBox>
             </div>
@@ -100,10 +104,7 @@
                 <asp:Label ID="confirmLbl" runat="server" CssClass="form-label" Text="Confirm Password "></asp:Label>
                 <asp:TextBox ID="confirmTB" runat="server" CssClass="form-input" TextMode="Password"></asp:TextBox>
             </div>
-            <div class="form-group">
-                <asp:Label ID="DOBLbl" runat="server" CssClass="form-label" Text="Date Of Birth "></asp:Label>
-                <asp:Calendar ID="dobCalendar" runat="server"></asp:Calendar>
-            </div>
+            
 
             <asp:Button ID="RegisterButton" runat="server" CssClass="register-btn" Text="Register" OnClick="RegisterButton_Click" />
     

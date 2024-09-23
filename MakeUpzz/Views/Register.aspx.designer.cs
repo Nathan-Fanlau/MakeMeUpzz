@@ -78,6 +78,24 @@ namespace MakeUpzz.Views
         protected global::System.Web.UI.WebControls.RadioButtonList genderList;
 
         /// <summary>
+        /// DOBLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DOBLbl;
+
+        /// <summary>
+        /// dobCalendar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar dobCalendar;
+
+        /// <summary>
         /// passwordLbl control.
         /// </summary>
         /// <remarks>
@@ -112,24 +130,6 @@ namespace MakeUpzz.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox confirmTB;
-
-        /// <summary>
-        /// DOBLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DOBLbl;
-
-        /// <summary>
-        /// dobCalendar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar dobCalendar;
 
         /// <summary>
         /// RegisterButton control.
