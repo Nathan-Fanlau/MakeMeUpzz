@@ -20,6 +20,7 @@
             text-align: center;
             color: #333;
             margin-bottom: 20px;
+            font-size: 1.2rem;
         }
 
         .form-group {
@@ -33,7 +34,7 @@
         }
 
         .form-input {
-            width: 90%;
+            width: 95%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
