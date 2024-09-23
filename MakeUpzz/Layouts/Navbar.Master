@@ -5,20 +5,67 @@
 <html>
 <head runat="server">
     <title></title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 3px solid #a3a3a3;
+            box-shadow: 4px 4px 6px #bfbfbf;
+        }
+
+        .navbar-btn {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #0056b3;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .logout-btn {
+            background-color: #b81c33;
+            border: 1px solid #b81c33;
+        }
+
+        .navbar-btn:hover {
+            background-color: #fff;
+            color: #0056b3;
+            border: 3px solid #0056b3;
+        }
+
+        .logout-btn:hover {
+            background-color: #fff;
+            color: #b81c33;
+            border-color: #b81c33;
+        }
+
+        .content-container {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="Home" runat="server" Text="Home" OnClick="Home_Click" />
-            <asp:Button ID="orderMakeup" runat="server" Text="Order Makeup" OnClick="orderMakeup_Click" />
-            <asp:Button ID="History" runat="server" Text="History" OnClick="History_Click" />
-            <asp:Button ID="manageMakeup" runat="server" Text="Manage Makeup" OnClick="manageMakeup_Click" />
-            <asp:Button ID="orderQueue" runat="server" Text="Order Queue" OnClick="orderQueue_Click" />
-            <asp:Button ID="ProfileButton" runat="server" Text="Profile" OnClick="Profile_Click" />
-            <asp:Button ID="transactionReport" runat="server" Text="Transaction Report" OnClick="transactionReport_Click" />
-            <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" />
+        <div class="navbar">
+            <asp:Button ID="Home" CssClass="navbar-btn" runat="server" Text="Home" OnClick="Home_Click" />
+            <asp:Button ID="orderMakeup" CssClass="navbar-btn" runat="server" Text="Order Makeup" OnClick="orderMakeup_Click" />
+            <asp:Button ID="History" CssClass="navbar-btn" runat="server" Text="History" OnClick="History_Click" />
+            <asp:Button ID="manageMakeup" CssClass="navbar-btn" runat="server" Text="Manage Makeup" OnClick="manageMakeup_Click" />
+            <asp:Button ID="orderQueue" CssClass="navbar-btn" runat="server" Text="Order Queue" OnClick="orderQueue_Click" />
+            <asp:Button ID="ProfileButton" CssClass="navbar-btn" runat="server" Text="Profile" OnClick="Profile_Click" />
+            <asp:Button ID="transactionReport" CssClass="navbar-btn" runat="server" Text="Transaction Report" OnClick="transactionReport_Click" />
+            <asp:Button ID="Logout" CssClass="navbar-btn logout-btn" runat="server" Text="Logout" OnClick="Logout_Click" />
         </div>
-        <div>
+        <div class="content-container">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
