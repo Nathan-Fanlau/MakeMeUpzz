@@ -27,7 +27,7 @@
         }
         h1 {
             text-align: center;
-            color: #007bff;
+            color: #0056b3;
             margin-top: 1rem;
             font-size: 2.5rem;
         }
@@ -35,7 +35,7 @@
         .user-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin-top: 4rem;
         }
 
@@ -46,7 +46,7 @@
         }
 
         .user-table th {
-            background-color: #007bff;
+            background-color: #0056b3;
             color: white;
         }
 

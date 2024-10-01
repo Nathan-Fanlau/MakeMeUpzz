@@ -8,7 +8,7 @@
 
     h1 {
         text-align: center;
-        color: #007bff;
+        color: #0056b3;
         margin-top: 1rem;
         font-size: 2.5rem;
     }
@@ -16,7 +16,7 @@
     .history-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin-top: 4rem;
     }
 
@@ -27,7 +27,7 @@
     }
 
     .history-table th {
-        background-color: #007bff;
+        background-color: #0056b3;
         color: white;
     }
 
@@ -40,11 +40,11 @@
     }
 
     .DetailButton {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #0056b3;
         color: white;
-        border: 2px solid #007bff;
+        border: 2px solid #0056b3;
         border-radius: 0.5rem;
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
@@ -52,8 +52,8 @@
 
     .DetailButton:hover {
         background-color: white;
-        color: #007bff;
-        border: 2px solid #007bff;
+        color: #0056b3;
+        border: 2px solid #0056b3;
     }
 
 
