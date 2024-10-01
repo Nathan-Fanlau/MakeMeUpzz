@@ -105,15 +105,6 @@ namespace MakeUpzz.Views
         protected global::System.Web.UI.WebControls.Button UpdateProfileBtn;
 
         /// <summary>
-        /// PwdErrorMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PwdErrorMsg;
-
-        /// <summary>
         /// OldPasswordTB control.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,15 @@ namespace MakeUpzz.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NewPasswordTB;
+
+        /// <summary>
+        /// PwdErrorMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PwdErrorMsg;
 
         /// <summary>
         /// UpdatePasswordBtn control.

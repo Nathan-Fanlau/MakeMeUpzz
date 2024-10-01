@@ -60,7 +60,7 @@
 </style>
 
     <h1>Transaction History</h1>
-    <asp:GridView ID="TransactionGV" runat="server" AutoGenerateColumns="false"  CssClass="history-table">
+    <asp:GridView ID="TransactionGV" runat="server" AutoGenerateColumns="false" CssClass="history-table">
         <Columns>
             <asp:BoundField DataField="TransactionID" HeaderText="TransactionID" SortExpression="TransactionID"></asp:BoundField>
             <asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID"></asp:BoundField>
