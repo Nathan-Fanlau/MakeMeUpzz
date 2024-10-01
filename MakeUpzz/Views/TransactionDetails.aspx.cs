@@ -36,5 +36,10 @@ namespace MakeUpzz.Views
                 }
             }
         }
+
+        protected void backBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/TransactionHistory.aspx");
+        }
     }
 }
